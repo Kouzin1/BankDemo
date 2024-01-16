@@ -35,10 +35,18 @@ console.log(document.head);
 console.log(document.body);
 
 //Selecting Element
-document.querySelector(".header");
+const header = document.querySelector(".header");
 const allSections = document.querySelectorAll(".section");
 console.log(allSections);
 
 document.getElementById("section--1");
 const allButtons = document.getElementsByTagName("button");
 console.log(allButtons);
+
+//Creating and inserting elements
+const message = document.createElement("div");
+message.classList.add("cookie-message");
+message.innerHTML = `Alaye We use cookies for improved functionality and analytics. <button class="btn btn--closeocookie">Got it!</button>`;
+
+// header.prepend(message);
+header.append(message);
