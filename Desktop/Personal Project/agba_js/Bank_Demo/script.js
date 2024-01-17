@@ -93,8 +93,12 @@ btnScrollTo.addEventListener("click", function (e) {
     document.documentElement.clientHeight,
     document.documentElement.clientWidth
   );
-  window.scrollTo(
-    s1coords.left + window.pageXOffset,
-    s1coords.top + window.pageYOffset
-  );
+  // Old Method
+  // window.scrollTo(
+  //   s1coords.left + window.pageXOffset,
+  //   s1coords.top + window.pageYOffset
+  // );
+
+  // New Method
+  section1.scrollIntoView({ behavior: "smooth" });
 });
