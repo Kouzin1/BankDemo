@@ -30,48 +30,67 @@ document.addEventListener("keydown", function (e) {
   }
 });
 
-console.log(document.documentElement);
-console.log(document.head);
-console.log(document.body);
+// console.log(document.documentElement);
+// console.log(document.head);
+// console.log(document.body);
 
-//Selecting Element
-const header = document.querySelector(".header");
-const allSections = document.querySelectorAll(".section");
-console.log(allSections);
+// //Selecting Element
+// const header = document.querySelector(".header");
+// const allSections = document.querySelectorAll(".section");
+// console.log(allSections);
 
-document.getElementById("section--1");
-const allButtons = document.getElementsByTagName("button");
-console.log(allButtons);
+// document.getElementById("section--1");
+// const allButtons = document.getElementsByTagName("button");
+// console.log(allButtons);
 
-//Creating and inserting elements
-const message = document.createElement("div");
-message.classList.add("cookie-message");
-message.innerHTML = `Alaye We use cookies for improved functionality and analytics. <button class="btn btn--closeocookie">Got it!</button>`;
+// //Creating and inserting elements
+// const message = document.createElement("div");
+// message.classList.add("cookie-message");
+// message.innerHTML = `Alaye We use cookies for improved functionality and analytics. <button class="btn btn--closeocookie">Got it!</button>`;
 
-// header.prepend(message);
-header.append(message);
+// // header.prepend(message);
+// header.append(message);
 
-// Delete elements
-document
-  .querySelector(".btn--close--cookie")
-  .addEventListener("click", function () {
-    message.remove();
-  });
+// // Delete elements
+// document
+//   .querySelector(".btn--close--cookie")
+//   .addEventListener("click", function () {
+//     message.remove();
+//   });
 
-// Styles
-message.style.backgroundColor = "#37383d";
-message.style.width = "120%";
+// // Styles
+// message.style.backgroundColor = "#37383d";
+// message.style.width = "120%";
 
-console.log(message.style.color);
-console.log(message.style.backgroundColor);
+// console.log(message.style.color);
+// console.log(message.style.backgroundColor);
 
-console.log(getComputedStyle(message).color);
-console.log(getComputedStyle(message).height);
+// console.log(getComputedStyle(message).color);
+// console.log(getComputedStyle(message).height);
 
-message.style.height =
-  Number.parseFloat(getComputedStyle(message).height, 10) + 30 + "px";
+// message.style.height =
+//   Number.parseFloat(getComputedStyle(message).height, 10) + 30 + "px";
 
-document.documentElement.style.setProperty("--color-primary", "oranged");
+// document.documentElement.style.setProperty("--color-primary", "oranged");
 
-// Attributes
-const logo = document.querySelector(".nav__logo");
+// // Attributes
+// const logo = document.querySelector(".nav__logo");
+
+const btnScrollTo = document.querySelector(".btn--scroll-to");
+
+const section1 = document.querySelector("#section--1");
+
+btnScrollTo.addEventListener("click", function (e) {
+  const s1coords = section1.getBoundingClientRect();
+  console.log(s1coords);
+
+  console.log(e.target.getBoundingClientRect());
+
+  console.log("Current scroll (X/Y)", window.pageXOffset, pageYOffset);
+
+  console.log(
+    "height/width viewport",
+    document.documentElement.clientHeight,
+    document.documentElement.clientWidth
+  );
+});
