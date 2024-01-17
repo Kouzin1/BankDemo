@@ -50,3 +50,10 @@ message.innerHTML = `Alaye We use cookies for improved functionality and analyti
 
 // header.prepend(message);
 header.append(message);
+
+// Delete elements
+document
+  .querySelector(".btn--close--cookie")
+  .addEventListener("click", function () {
+    message.remove();
+  });
