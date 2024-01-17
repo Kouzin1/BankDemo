@@ -93,4 +93,5 @@ btnScrollTo.addEventListener("click", function (e) {
     document.documentElement.clientHeight,
     document.documentElement.clientWidth
   );
+  window.scrollTo(s1coords.left, s1coords.top);
 });
