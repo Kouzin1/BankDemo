@@ -7,8 +7,13 @@ const modal = document.querySelector(".modal");
 const overlay = document.querySelector(".overlay");
 const btnCloseModal = document.querySelector(".btn--close-modal");
 const btnsOpenModal = document.querySelectorAll(".btn--show-modal");
+const btnScrollTo = document.querySelector(".btn--scroll-to");
+const section1 = document.querySelector("#section--1");
 
-const openModal = function () {
+///////////////////////////////////////
+// Modal window
+
+const openModal = function (e) {
   e.preventDefault();
   modal.classList.remove("hidden");
   overlay.classList.remove("hidden");
@@ -30,6 +35,38 @@ document.addEventListener("keydown", function (e) {
   }
 });
 
+btnScrollTo.addEventListener("click", function (e) {
+  const s1coords = section1.getBoundingClientRect();
+  console.log(s1coords);
+
+  console.log(e.target.getBoundingClientRect());
+
+  console.log("Current scroll (X/Y)", window.pageXOffset, window.pageYOffset);
+
+  console.log(
+    "height/width viewport",
+    document.documentElement.clientHeight,
+    document.documentElement.clientWidth
+  );
+  // Old Method
+  // window.scrollTo(
+  //   s1coords.left + window.pageXOffset,5
+  //   s1coords.top + window.pageYOffset
+  // );
+
+  // New Method
+  section1.scrollIntoView({ behavior: "smooth" });
+});
+
+document.querySelectorAll(".nav__link"),
+  forEach(function (el) {
+    el.addEventListener("click", function (e) {
+      e.preventDefault();
+      const id = this.getAttribute("href");
+      console.log(id);
+      document.querySelector(id);
+    });
+  });
 // console.log(document.documentElement);
 // console.log(document.head);
 // console.log(document.body);
@@ -46,7 +83,7 @@ document.addEventListener("keydown", function (e) {
 // //Creating and inserting elements
 // const message = document.createElement("div");
 // message.classList.add("cookie-message");
-// message.innerHTML = `Alaye We use cookies for improved functionality and analytics. <button class="btn btn--closeocookie">Got it!</button>`;
+// message.innerHTML = `Alaye We use cookies for improved functionality and analytics. <but25ton class="btn btn--closeocookie">Got it!</button>`;
 
 // // header.prepend(message);
 // header.append(message);
@@ -76,29 +113,24 @@ document.addEventListener("keydown", function (e) {
 // // Attributes
 // const logo = document.querySelector(".nav__logo");
 
-const btnScrollTo = document.querySelector(".btn--scroll-to");
+//rgb(255, 255, 255)
+const randomInt = (min, max) =>
+  Math.floor(Math.random() * (max - min + 1) + min);
+const randomColor = () =>
+  `rrgb(${randomInt(0, 255)}, ${randomInt(0, 255)}, ${randomInt(0)})`;
 
-const section1 = document.querySelector("#section--1");
+document.querySelector(".nav__link").addEventListener("click", function (e) {
+  this.style.backgroundColor = randomColor();
+  console.log("LINK", e.target, e.currentTarget);
+  console.log(e.currentTarget === this);
+});
 
-btnScrollTo.addEventListener("click", function (e) {
-  const s1coords = section1.getBoundingClientRect();
-  console.log(s1coords);
+document.querySelector(".nav__links").addEventListener("click", function (e) {
+  this.style.backgroundColor = randomColor();
+  console.log("CONTAINER", e.target, e.currentTarget);
+});
 
-  console.log(e.target.getBoundingClientRect());
-
-  console.log("Current scroll (X/Y)", window.pageXOffset, window.pageYOffset);
-
-  console.log(
-    "height/width viewport",
-    document.documentElement.clientHeight,
-    document.documentElement.clientWidth
-  );
-  // Old Method
-  // window.scrollTo(
-  //   s1coords.left + window.pageXOffset,
-  //   s1coords.top + window.pageYOffset
-  // );
-
-  // New Method
-  section1.scrollIntoView({ behavior: "smooth" });
+document.querySelector(".nav").addEventListener("click", function (e) {
+  this.style.backgroundColor = randomColor();
+  console.log("NAV", e.target, e.currentTarget);
 });
