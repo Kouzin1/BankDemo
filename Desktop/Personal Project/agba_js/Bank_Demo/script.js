@@ -58,15 +58,14 @@ btnScrollTo.addEventListener("click", function (e) {
   section1.scrollIntoView({ behavior: "smooth" });
 });
 
-document.querySelectorAll(".nav__link"),
-  forEach(function (el) {
-    el.addEventListener("click", function (e) {
-      e.preventDefault();
-      const id = this.getAttribute("href");
-      console.log(id);
-      document.querySelector(id);
-    });
+document.querySelectorAll(".nav__link").forEach(function (el) {
+  el.addEventListener("click", function (e) {
+    e.preventDefault();
+    const id = this.getAttribute("href");
+    console.log(id);
+    document.querySelector(id);
   });
+});
 // console.log(document.documentElement);
 // console.log(document.head);
 // console.log(document.body);
@@ -117,7 +116,7 @@ document.querySelectorAll(".nav__link"),
 const randomInt = (min, max) =>
   Math.floor(Math.random() * (max - min + 1) + min);
 const randomColor = () =>
-  `rrgb(${randomInt(0, 255)}, ${randomInt(0, 255)}, ${randomInt(0)})`;
+  `rgb(${randomInt(0, 255)}, ${randomInt(0, 255)}, ${randomInt(0, 255)})`;
 
 document.querySelector(".nav__link").addEventListener("click", function (e) {
   this.style.backgroundColor = randomColor();
