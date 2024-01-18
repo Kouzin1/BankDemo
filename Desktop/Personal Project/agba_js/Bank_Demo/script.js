@@ -63,7 +63,7 @@ document.querySelectorAll(".nav__link").forEach(function (el) {
     e.preventDefault();
     const id = this.getAttribute("href");
     console.log(id);
-    document.querySelector(id);
+    document.querySelector(id).scrollIntoView({ behavior: "smooth" });
   });
 });
 // console.log(document.documentElement);
