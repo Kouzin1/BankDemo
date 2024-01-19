@@ -66,6 +66,16 @@ document.querySelectorAll(".nav__link").forEach(function (el) {
     document.querySelector(id).scrollIntoView({ behavior: "smooth" });
   });
 });
+
+//Tabbed component
+const tabs = document.querySelectorAll(".operations_tabs");
+const tabsContainer = document.querySelector(".operations__tab-container");
+const tabsContent = document.querySelectorAll(".operations__content");
+
+tabsCpntainer.addEventListener("click", function (e) {
+  const clicked = e.target;
+  console.log(clicked);
+});
 // console.log(document.documentElement);
 // console.log(document.head);
 // console.log(document.body);
