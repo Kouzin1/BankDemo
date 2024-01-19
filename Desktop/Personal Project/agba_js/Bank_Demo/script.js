@@ -72,7 +72,7 @@ const tabs = document.querySelectorAll(".operations_tabs");
 const tabsContainer = document.querySelector(".operations__tab-container");
 const tabsContent = document.querySelectorAll(".operations__content");
 
-tabsCpntainer.addEventListener("click", function (e) {
+tabsContainer.addEventListener("click", function (e) {
   const clicked = e.target;
   console.log(clicked);
 });
