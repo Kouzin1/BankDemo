@@ -67,8 +67,18 @@ document.querySelectorAll(".nav__link").forEach(function (el) {
   });
 });
 
+document.querySelector(".nav__links").addEventListener("click", function (e) {
+  e.preventDefault();
+
+  //Matching strategy
+  if (e.target.classList.contains("nav__link")) {
+    const id = e.target.getAttribute("href");
+    document.querySelector(id).scrollIntoView({ behavior: "smooth" });
+  }
+});
+
 //Tabbed component
-const tabs = document.querySelectorAll(".operations_tabs");
+const tabs = document.querySelectorAll(".operations_tab");
 const tabsContainer = document.querySelector(".operations__tab-container");
 const tabsContent = document.querySelectorAll(".operations__content");
 
