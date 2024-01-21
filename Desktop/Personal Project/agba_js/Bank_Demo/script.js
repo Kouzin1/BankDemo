@@ -165,6 +165,16 @@ const headerObserver = new IntersectionObserver(stickyNav, {
 });
 
 headerObserver.observe(header);
+
+// Reveal sections
+const allSections = document.querySelectorAll(".section");
+
+const revealSection = function (entries, observer) {};
+
+const sectionObserver = new IntersectionObserver(revealSection, {});
+allSections.forEach(function (section) {
+  sectionObserver.observe(section);
+});
 // //Selecting Element
 // const header = document.querySelector(".header");
 // const allSections = document.querySelectorAll(".section");
