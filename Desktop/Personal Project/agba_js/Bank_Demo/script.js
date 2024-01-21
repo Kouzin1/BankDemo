@@ -235,15 +235,21 @@ const goTOSlide = function (slide) {
 goTOSlide(0);
 
 //Next slide
-btnRight.addEventListener("click", function () {
+const nextSlide = function () {
   if (curSlide === maxSlide - 1) {
     curSlide = 0;
   } else {
     curSlide++;
   }
-
   goTOSlide(curSlide);
-});
+};
+
+const prevSlide = function () {
+  curSlide--;
+  goTOSlide(curSlide);
+};
+btnRight.addEventListener("click", nextSlide);
+btnLeft.addEventListener("click", prevSlide);
 // //Selecting Element
 // const header = document.querySelector(".header");
 // const allSections = document.querySelectorAll(".section");
