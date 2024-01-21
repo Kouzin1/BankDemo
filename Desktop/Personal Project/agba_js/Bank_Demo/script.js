@@ -130,22 +130,39 @@ nav.addEventListener("mouseout", handleHover.bind(1));
 //   else nav.classList.remove("sticky");
 // });
 // console.log(document.documentElement);
-// console.log(document.head);
+// ctonsole.log(document.head);.head
 // console.log(document.body);
 
-const obsCallback = function (entries, observer) {
-  entries.forEach((entry) => {
-    console.log(entry);
-  });
+// const obsCallback = function (entries, observer) {
+//   entries.forEach((entry) => {
+//     console.log(entry);
+//   });
+// };
+
+// const obsOptions = {
+//   root: null,
+//   threshold: 0.1,
+// };
+
+// const observer = new IntersectionObserver(obsCallback, obsOptions);
+// observer.observe(section1);
+
+const header = document.querySelector(".header");
+
+const stickyNav = function (entries) {
+  const [entry] = entries;
+  console.log(entry);
+
+  if (!entry.isIntersecting) nav.classList.add("sticky");
+  else nav.classList.add("sticky");
 };
 
-const obsOptions = {
+const headerObserver = new IntersectionObserver(stickyNav, {
   root: null,
-  threshold: 0.1,
-};
+  threshold: 0,
+});
 
-const observer = new IntersectionObserver(obsCallback, obsOptions);
-observer.observe(section1);
+headerObserver.observe(header);
 // //Selecting Element
 // const header = document.querySelector(".header");
 // const allSections = document.querySelectorAll(".section");
