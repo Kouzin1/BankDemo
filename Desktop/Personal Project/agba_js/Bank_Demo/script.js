@@ -171,7 +171,7 @@ const allSections = document.querySelectorAll(".section");
 
 const revealSection = function (entries, observer) {
   const [entry] = entries;
-  console.log(entry);
+  // console.log(entry);
 
   if (!entry.isIntersecting) return;
 
@@ -193,7 +193,7 @@ const imgTargets = document.querySelectorAll("img[data-src]");
 
 const loadImg = function (entries, observer) {
   const [entry] = entries;
-  console.log(entry);
+  // console.log(entry);
 
   if (!entry.isIntersecting) return;
 
@@ -210,6 +210,7 @@ const loadImg = function (entries, observer) {
 const imgObserver = new IntersectionObserver(loadImg, {
   root: null,
   threshold: 0,
+  rootMargin: "200px",
 });
 
 imgTargets.forEach((img) => imgObserver.observe(img));
