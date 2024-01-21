@@ -214,6 +214,17 @@ const imgObserver = new IntersectionObserver(loadImg, {
 });
 
 imgTargets.forEach((img) => imgObserver.observe(img));
+
+//Slider
+const slides = document.querySelectorAll(".slide");
+const btnLeft = document.querySelector(".slider__btn--left");
+const btnRight = document.querySelector(".slider__btn--right");
+
+const slider = document.querySelector(".slider");
+slider.style.transform = "scale(0.4) translateX(-800px)";
+slider.sytle.overflow = "visible";
+
+slides.forEach((s, i) => (s.sytle.transform = `translateX(${100 * i}%)`));
 // //Selecting Element
 // const header = document.querySelector(".header");
 // const allSections = document.querySelectorAll(".section");
