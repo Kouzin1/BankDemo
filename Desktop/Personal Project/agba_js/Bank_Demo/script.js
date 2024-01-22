@@ -227,12 +227,12 @@ const maxSlide = slides.length;
 // slider.style.transform = "scale(0.4) translateX(-800px)";
 // slider.sytle.overflow = "visible";
 
-const goTOSlide = function (slide) {
+const goToSlide = function (slide) {
   slides.forEach(
-    (s, i) => (s.sytle.transform = `translateX(${100 * (i - curSlide)}%)`)
+    (s, i) => (s.style.transform = `translateX(${100 * (i - curSlide)}%)`)
   );
 };
-goTOSlide(0);
+goToSlide(0);
 
 //Next slide
 const nextSlide = function () {
@@ -241,7 +241,7 @@ const nextSlide = function () {
   } else {
     curSlide++;
   }
-  goTOSlide(curSlide);
+  goToSlide(curSlide);
 };
 
 const prevSlide = function () {
@@ -250,10 +250,17 @@ const prevSlide = function () {
   } else {
     curSlide--;
   }
-  goTOSlide(curSlide);
+  goToSlide(curSlide);
 };
+
 btnRight.addEventListener("click", nextSlide);
 btnLeft.addEventListener("click", prevSlide);
+
+document.addEventListener("keydown", function (e) {
+  console.log(e);
+  if (e.key === "ArrowLeft") prevSlide();
+  e.key === "ArrowRight" && nextSlide();
+});
 // //Selecting Element
 // const header = document.querySelector(".header");
 // const allSections = document.querySelectorAll(".section");
