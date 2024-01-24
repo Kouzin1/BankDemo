@@ -364,3 +364,29 @@ slider();
 //   this.style.backgroundColor = randomColor();
 //   console.log("NAV", e.target, e.currentTarget);
 // });
+
+// OOP
+
+const car = function (make, speed) {
+  this.make = make;
+  this.speed = speed;
+};
+
+car.prototype.accelerate = function () {
+  this.speed += 10;
+  console.log(`${this.make} is going at ${this.speed} km/h`);
+};
+
+car.prototype.brake = function () {
+  this.speed -= 5;
+  console.log(`${this.make} is going at ${this.speed}km/h`);
+};
+
+const bmw = new car("BMW", 120);
+const mercedes = new car("Mercedes", 95);
+
+bmw.accelerate();
+mercedes.accelerate();
+mercedes.accelerate();
+mercedes.brake();
+bmw.brake();
